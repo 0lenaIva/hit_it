@@ -40,6 +40,12 @@ class Hero(Turtle):
             #self.change_angle(self.x_end, self.y_end, self.x_start, self.y_start)
             self.change_angle(self.x_end, self.y_end, randint(-200,200), randint(-200,200))
 
+    def bumb(self, hero):
+        if self.distance(hero.xcor(), hero.ycor()) < 30:
+            return True
+        else:
+            return False
+
 
 finish = Hero(200,220, 'green', 'triangle')
 sprite = Hero(-50, -200, 'blue', 'turtle')
@@ -60,4 +66,6 @@ game = True
 while game:
     enemy1.move()
     enemy2.move()   
+    if sprite.bumb(finish):
+        game = False
 done()
